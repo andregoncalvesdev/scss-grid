@@ -26,10 +26,21 @@
   }
 }
 
-@mixin grid-breakpoint($width, $colNumber) {
-  @include media('<=#{$width}') {
+@mixin grid-breakpoint($breakpoint, $colNumber) {
+  @include media('<=#{$breakpoint}') {
     > * {
       flex-basis: columnWidth($colNumber);
     }
+  }
+}
+
+@mixin container($max-width) {
+  margin: 0 auto;
+  max-width: $max-width;
+}
+
+@mixin container-breakpoint($breakpoint, $width) {
+  @include media('<=#{$breakpoint}') {
+    margin: 0 $margin;
   }
 }
