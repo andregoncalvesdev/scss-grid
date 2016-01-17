@@ -39,7 +39,7 @@
   max-width: $max-width;
 }
 
-@mixin container-breakpoint($breakpoint, $width) {
+@mixin container-breakpoint($breakpoint, $margin) {
   @include media('<=#{$breakpoint}') {
     margin: 0 $margin;
   }
