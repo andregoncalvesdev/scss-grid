@@ -28,6 +28,8 @@
 
 @mixin grid-breakpoint($breakpoint, $gutter, $colNumber, $height) {
   @include media('<=#{$breakpoint}px') {
+    margin: margin: -$gutter / 2;
+
     > * {
       @include column($gutter, $colNumber, $height);
     }
