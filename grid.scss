@@ -8,8 +8,6 @@
   height: $height;
 
   > * {
-    display: flex;
-    flex-direction: column;
     margin: $gutter / 2;
     width: 100%;
   }
