@@ -26,10 +26,10 @@
   }
 }
 
-@mixin grid-breakpoint($breakpoint, $colNumber) {
+@mixin grid-breakpoint($breakpoint, $gutter, $colNumber, $height) {
   @include media('<=#{$breakpoint}') {
     > * {
-      flex-basis: columnWidth($colNumber);
+      @include column($gutter, $colNumber, $height);
     }
   }
 }
@@ -42,5 +42,24 @@
 @mixin container-breakpoint($breakpoint, $margin) {
   @include media('<=#{$breakpoint}') {
     margin: 0 $margin;
+  }
+}
+
+@mixin make-grid($grid) {
+  @each $breakpoint, $params in $grid {
+    @if $breakpoint == "default" {
+      @include grid(
+       map-get($params, gutter),
+       map-get($params, colNumber),
+       map-get($params, height)
+      );
+    } @else {
+      @include grid-breakpoint(
+        $breakpoint,
+        map-get($params, gutter),
+        map-get($params, colNumber),
+        map-get($params, height)
+      );
+    }
   }
 }
