@@ -27,7 +27,7 @@
 }
 
 @mixin grid-breakpoint($breakpoint, $gutter, $colNumber, $height) {
-  @include media('<=#{$breakpoint}') {
+  @include media('<=#{$breakpoint}px') {
     > * {
       @include column($gutter, $colNumber, $height);
     }
@@ -40,7 +40,7 @@
 }
 
 @mixin container-breakpoint($breakpoint, $margin) {
-  @include media('<=#{$breakpoint}') {
+  @include media('<=#{$breakpoint}px') {
     margin: 0 $margin;
   }
 }
